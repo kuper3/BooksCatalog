@@ -6,9 +6,7 @@
 		<groupId>com.github.kuper3</groupId>
 		<version>1.0</version>
 	</parent>
-	<groupId>com.github.kuper3</groupId>
 	<artifactId>BooksCatalog-ejb</artifactId>
-	<version>1.0</version>
 	<packaging>ejb</packaging>
 	<name>BooksCatalog EJB module</name>
 	<build>
@@ -56,6 +54,18 @@
 			<groupId>javax.ejb</groupId>
 			<artifactId>ejb-api</artifactId>
 			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.22</version>
 		</dependency>
 	</dependencies>
 </project>

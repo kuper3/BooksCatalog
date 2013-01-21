@@ -1,0 +1,15 @@
+#java specific
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# mvn
+target/
+
+# eclipse
+.classpath
+.project
+.settings
