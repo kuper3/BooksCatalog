@@ -18,21 +18,19 @@ public class AuthorBean implements AuthorBeanRemote, AuthorBeanLocal {
 	@PersistenceContext(unitName="BooksCatalog-ejb")
     private EntityManager em;
 
-	//@Override
 	public void saveOrUpdate(Author obj) {
 		em.persist(obj);
 	}
 
-	//@Override
 	public void remove(Author obj) {
 		em.remove(obj);
 	}
 	
-	//@Override
 	@SuppressWarnings("unchecked")
 	public List<Author> getAll() {
-		Query query = em.createNativeQuery("select * from authors", Author.class);
+		Query query = em.createNativeQuery("select * from authors", Author.class);		
 		List<Author> result = query.getResultList();
+		System.out.println("size: " + result.size());
 		return result;
 	}
 

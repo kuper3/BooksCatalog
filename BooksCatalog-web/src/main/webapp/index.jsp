@@ -17,6 +17,7 @@
 <hr/>
 ${requestScope.greeting}
 
-<p><a href="<c:url value='authorsListPage.jsf'/>">JSF Test Page</a></p>
+<p><a href="<c:url value='listBooksPage.jsf'/>">Books</a></p>
+<p><a href="<c:url value='authorsListPage.jsf'/>">Authors</a></p>
 </body>
 </html>

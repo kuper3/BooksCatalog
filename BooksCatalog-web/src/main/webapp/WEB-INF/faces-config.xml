@@ -7,4 +7,25 @@
   <managed-bean-class>com.github.kuper3.bookscatalog.web.faces.Authors</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>bookListController</managed-bean-name>
+  <managed-bean-class>com.github.kuper3.bookscatalog.web.faces.BookListController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <navigation-rule>
+  <from-view-id>/listBooksPage.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>detail</from-outcome>
+   <to-view-id>/editBookPage.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/editBookPage.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>editDetail</from-outcome>
+   <to-view-id>/listBooksPage.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
 </faces-config>

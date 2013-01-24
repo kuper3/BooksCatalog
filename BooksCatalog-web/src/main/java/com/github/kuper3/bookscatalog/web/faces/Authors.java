@@ -21,12 +21,10 @@ public class Authors {
 		author.setName(new AuthorName("1", "1"));
 		
 		list.add(author);
+		System.out.println("AuthorBean = " + authorBean);
 	}
 
 	public List<Author> getList() {
-		if (list.size() < 2) {
-			list.addAll(authorBean.getAll());
-		}
 		return list;
 	}
 

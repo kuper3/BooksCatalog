@@ -17,7 +17,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <p>Enter your message here: <br/></p>
         <h:outputText value="#{authors.list}" />
         <h:commandButton value="Submit" action="submit"/>
-        <p> <rich:calendar /> </p>
     </h:form>  
     </body>
     </html>

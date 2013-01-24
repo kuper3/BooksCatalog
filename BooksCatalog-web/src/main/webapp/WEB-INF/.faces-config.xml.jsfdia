@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#listBooksPage.jsp" PATH="/listBooksPage.jsp"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listBooksPage.jsp:0" NAME="item"
+   PATH="/listBooksPage.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="detail::#editBookPage.jsp" NAME="output"
+    PATH="/editBookPage.jsp" TARGET="rules:#editBookPage.jsp"
+    TITLE="detail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editBookPage.jsp" PATH="/editBookPage.jsp"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editBookPage.jsp:0" NAME="item"
+   PATH="/editBookPage.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editDetail::#listBooksPage.jsp"
+    NAME="output" PATH="/listBooksPage.jsp"
+    TARGET="rules:#listBooksPage.jsp" TITLE="editDetail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
