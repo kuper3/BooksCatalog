@@ -21,28 +21,24 @@ public class BookBean implements BookBeanLocal, BookBeanRemote {
 	@PersistenceContext(unitName="BooksCatalog-ejb")
 	private EntityManager em;
 
-	//@Override
 	public void saveOrUpdate(Book obj) {
 		em.persist(obj);
 	}
 
-	//@Override
 	public void remove(Book obj) {
 		em.remove(obj);
 		
 	}
 
-	//@Override
 	@SuppressWarnings("unchecked")
 	public List<Book> get(Author obj) {		
-		Query query = em.createNativeQuery("select * from books inner join authors_books where authors_first_name= :firstName and authors_second_name= :secondName", Book.class);
+		Query query = em.createNativeQuery("select * from books inner join books_authors where authors_first_name= :firstName and authors_second_name= :secondName", Book.class);
 		query.setParameter("firstName", obj.getName().getFirstName());
 		query.setParameter("secondName", obj.getName().getSecondName());
 		List<Book> result = query.getResultList();
 		return result;
 	}
 
-	//@Override
 	@SuppressWarnings("unchecked")
 	public List<Book> getAll() {
 		Query query = em.createNativeQuery("select * from books", Book.class);

@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.faces.component.html.HtmlDataTable;
+import javax.naming.InitialContext;
 
 import com.github.kuper3.bookscatalog.ejb.dao.BookBeanLocal;
 import com.github.kuper3.bookscatalog.ejb.entity.Book;
+import com.github.kuper3.bookscatalog.util.Version;
 
-public class BookListController {
+public class BookListController {	
 	
-	@EJB
 	private BookBeanLocal bookBean;
 
 	private static final String SUCCESS = "success";
@@ -27,11 +27,26 @@ public class BookListController {
 	private int selectedBookIndex = 0;
 	
 	public BookListController() {
+		
+		/*
+		 * Looks like @Ejb doesnt work properly with jsf 1.2. 
+		 */
+		try {
+			InitialContext context = new InitialContext();
+			bookBean = (BookBeanLocal) context.lookup("BooksCatalog-ear-" + Version.VALUE + "/BookBean/local");			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		List<Book> list = null;
 		if (bookBean != null) {
 			list = bookBean.getAll();
-		}
+		} 
+		
 		if (list == null || list.isEmpty()) {
+			
+			System.out.println("Load fake data because ejb lookup is broken");
+			
 			Book book1 = new Book();
 			book1.setIsbn("1111111111111");
 			book1.setName("Book1");

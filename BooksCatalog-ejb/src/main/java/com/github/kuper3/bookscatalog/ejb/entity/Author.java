@@ -19,7 +19,7 @@ public class Author implements Serializable {
 	@EmbeddedId
 	private AuthorName name;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="authors")
 	private List<Book> books;
 
 	public AuthorName getName() {

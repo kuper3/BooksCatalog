@@ -30,7 +30,6 @@ public class AuthorBean implements AuthorBeanRemote, AuthorBeanLocal {
 	public List<Author> getAll() {
 		Query query = em.createNativeQuery("select * from authors", Author.class);		
 		List<Author> result = query.getResultList();
-		System.out.println("size: " + result.size());
 		return result;
 	}
 
